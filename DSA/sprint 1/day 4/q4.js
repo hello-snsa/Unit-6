@@ -1,36 +1,38 @@
 function runProgram(input) {
-
     input = input.trim();
-    var newInput = input.split(/[\r\n]+/);
+    let newInput = input.split(/[\r\n]+/);
 
-    var noOfQuery = Number(newInput[0]);
+    let noOfQuiery = Number(newInput[0]);
 
-    for (var a = 1; a <= noOfQuery * 2; a += 2) {
-
-
-        var arr = newInput[a + 1].split(" ").map(Number);
-
-        // console.log("data", arr);
+    for (let a = 1; a < noOfQuiery * 2; a += 2) {
 
 
-        let res = "";
+
+        let result = "";
+        let arr = newInput[a + 1].split(" ").map(Number);
+
 
         for (let i = 0; i < arr.length - 1; i++) {
-            let isBreak = false;
-
+            let isAvailable = true;
             for (let j = i + 1; j < arr.length; j++) {
                 if (arr[i] < arr[j]) {
-                    res += arr[j] + " ";
-                    isBreak = true;
+                    result += arr[j] + " ";
+                    isAvailable = false;
                     break;
                 }
+
             }
-            isBreak ? "" : res += ' -1';
+            if (isAvailable) {
+                result += -1 + " ";
+            }
         }
-        console.log(res + " -1")
+        result += -1;
+        console.log(result);
 
 
-    }//end of Query
+
+
+    }//end of Quiery
 
 }//End of runProgram()
 

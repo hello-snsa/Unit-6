@@ -10,46 +10,50 @@ function runProgram(input) {
 
         // var data = newInput[a].split("");
         var data = newInput[a];
-        let res = '';
+        // let res = '';
+        let res = [];
 
         // console.log("data", data);
         let count = 0;
-        let max = 0;
-        for (let j = 0; j < data.length; j++) {
-            if (data[j] == '#') {
-                count++;
-                if (count > max) {
-                    max = count;
-                }
-            } else {
-                count = 0;
-            }
-        }
+        // let max = 0;
+        // for (let j = 0; j < data.length; j++) {
+        //     if (data[j] == '#') {
+        //         count++;
+        //         if (count > max) {
+        //             max = count;
+        //         }
+        //     } else {
+        //         count = 0;
+        //     }
+        // }
         // console.log(max);
 
-        if (max != 0) {
-            for (let k = 0; k < max; k++) {
-                for (let i = 0; i < data.length; i++) {
-                    if (data[i + 1] != '#' && data[i] != '#') {
-                        res += data[i];
-                    }
-                }
-                console.log("old data", data)
-                data = res;
-                console.log("new data", data)
+        // if (max != 0) {
+        // for (let k = 0; k < data.length; k++) {
+        for (let i = 0; i < data.length; i++) {
+            if (data[i] == '#') {
+                res.pop();
+            }
+            else {
+                res.push(data[i]);
             }
         }
+        // console.log("old data", data)
+        // data = res;
+        // console.log("new data", data)
+        // }
+        // }
 
-        else {
-            for (let i = 0; i < data.length; i++) {
-                if (data[i + 1] != '#' && data[i] != '#') {
-                    res += data[i];
-                }
-            }
-            data = res;
-            // console.log(res)
-        }
-        console.log(data)
+        // else {
+        //     for (let i = 0; i < data.length; i++) {
+        //         if (data[i + 1] != '#' && data[i] != '#') {
+        //             res += data[i];
+        //         }
+        //     }
+        //     data = res;
+        //     // console.log(res)
+        // }
+        console.log(res.join(""))
 
 
 
