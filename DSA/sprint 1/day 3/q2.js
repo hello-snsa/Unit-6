@@ -9,18 +9,25 @@ function runProgram(input) {
     arr.sort((a, b) => (a - b));
     query.sort((a, b) => (a - b));
 
-    function fun(i) {
+    for (let i = 0; i < query.length; i++) {
+
+        let isAvailable = false;
+
 
         for (let j = 0; j < arr.length; j++) {
+            if (query[i] < arr[j]) {
+                break;
+            }
             if (query[i] == arr[j]) {
-                return true;
+                isAvailable = true;
+                break;
+
             }
         }
-        return false;
 
-    }
-    for (let i = 0; i < query.length; i++) {
-        let isAvailable = fun(i)
+
+
+
         if (isAvailable) {
             console.log("YES")
         }
